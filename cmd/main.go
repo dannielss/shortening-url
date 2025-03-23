@@ -9,19 +9,22 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/danniels/shortening-url/internal/config"
 	"github.com/danniels/shortening-url/internal/handler"
+	"github.com/danniels/shortening-url/internal/repository"
 	"github.com/danniels/shortening-url/internal/router"
 	"github.com/danniels/shortening-url/internal/usecase"
 )
 
 func main() {
-	// Create usecase
-	uc := usecase.NewUsecase()
+	redis := config.NewCacheClient("localhost:6379", "", 0)
 
-	// Create handler
+	repo := repository.NewRepo(redis)
+
+	uc := usecase.NewUsecase(repo)
+
 	h := handler.NewHandler(uc)
 
-	// Setup router
 	r := router.SetupRoutes(h)
 
 	// Create HTTP server

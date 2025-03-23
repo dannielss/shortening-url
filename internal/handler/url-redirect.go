@@ -7,7 +7,7 @@ import (
 )
 
 func (h *Handler) RedirectUrl(ctx *gin.Context) {
-	shortURL := ctx.Param("shortUrl")
+	shortURL := ctx.Param("shorted_url")
 
 	longURL, err := h.uc.GetOriginalURL(shortURL)
 	if err != nil {

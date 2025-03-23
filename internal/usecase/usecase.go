@@ -2,10 +2,11 @@ package usecase
 
 import (
 	"github.com/danniels/shortening-url/internal/domain"
+	"github.com/danniels/shortening-url/internal/repository"
 )
 
 type usecase struct {
-	// repo *repository.Repo
+	repo *repository.Repo
 }
 
 type Usecase interface {
@@ -13,10 +14,6 @@ type Usecase interface {
 	GetOriginalURL(shortedUrl string) (string, error)
 }
 
-// func NewUsecase(repo *repository.Repo) *usecase {
-// 	return &usecase{repo: repo}
-// }
-
-func NewUsecase() *usecase {
-	return &usecase{}
+func NewUsecase(repo *repository.Repo) *usecase {
+	return &usecase{repo: repo}
 }

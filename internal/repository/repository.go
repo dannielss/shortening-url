@@ -1,11 +1,13 @@
 package repository
 
-import "gorm.io/gorm"
+import (
+	"github.com/go-redis/redis/v8"
+)
 
 type Repo struct {
-	db *gorm.DB
+	cache *redis.Client
 }
 
-func NewRepo(db *gorm.DB) *Repo {
-	return &Repo{db: db}
+func NewRepo(cache *redis.Client) *Repo {
+	return &Repo{cache: cache}
 }

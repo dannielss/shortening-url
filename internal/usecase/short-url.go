@@ -15,6 +15,12 @@ func (uc *usecase) ShortURL(url string) (*domain.UrlMapping, error) {
 
 	shortURL := strings.TrimRight(encoded, "=")[:8]
 
+	err := uc.repo.StoreShortURL(shortURL, url)
+
+	if err != nil {
+		return nil, err
+	}
+
 	return &domain.UrlMapping{
 		LongURL:  url,
 		ShortURL: shortURL,
