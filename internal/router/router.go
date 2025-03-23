@@ -9,7 +9,7 @@ func SetupRoutes(h *handler.Handler) *gin.Engine {
 	r := gin.Default()
 
 	r.GET("/shorten", h.ShortUrl)
-	r.GET("/:shorted_url", h.RedirectUrl)
+	r.GET("/:shorted_url", h.UrlRedirect)
 
 	return r
 }

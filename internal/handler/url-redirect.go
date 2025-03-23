@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (h *Handler) RedirectUrl(ctx *gin.Context) {
+func (h *Handler) UrlRedirect(ctx *gin.Context) {
 	shortURL := ctx.Param("shorted_url")
 
 	longURL, err := h.uc.GetOriginalURL(shortURL)

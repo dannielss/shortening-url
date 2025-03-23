@@ -2,9 +2,10 @@ package config
 
 import (
 	"context"
-	"log"
 
+	"github.com/danniels/shortening-url/internal/logger"
 	"github.com/go-redis/redis/v8"
+	"go.uber.org/zap"
 )
 
 func NewCacheClient(redisAddr, password string, db int) *redis.Client {
@@ -16,9 +17,9 @@ func NewCacheClient(redisAddr, password string, db int) *redis.Client {
 
 	_, err := client.Ping(context.Background()).Result()
 	if err != nil {
-		log.Fatalf("Could not connect to Redis: %v", err)
+		logger.Logger.Fatal("Could not connect to Redis", zap.Error(err))
 	}
 
-	log.Println("Successfully connected to Redis!")
+	logger.Logger.Info("Successfully connected to Redis!")
 	return client
 }
