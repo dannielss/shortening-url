@@ -11,12 +11,19 @@ import (
 	"github.com/danniels/shortening-url/internal/config"
 	"github.com/danniels/shortening-url/internal/handler"
 	"github.com/danniels/shortening-url/internal/logger"
+	"github.com/danniels/shortening-url/internal/middleware"
 	"github.com/danniels/shortening-url/internal/repository"
 	"github.com/danniels/shortening-url/internal/router"
 	"github.com/danniels/shortening-url/internal/usecase"
 	"github.com/joho/godotenv"
+	"github.com/prometheus/client_golang/prometheus"
 	"go.uber.org/zap"
 )
+
+func init() {
+	prometheus.MustRegister(middleware.HttpRequestsTotal)
+	prometheus.MustRegister(middleware.HttpRequestDuration)
+}
 
 func main() {
 	logger.NewLogger()
