@@ -8,7 +8,6 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 )
 
-// Define Prometheus metrics
 var (
 	HttpRequestsTotal = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
