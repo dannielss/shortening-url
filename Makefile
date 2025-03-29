@@ -18,6 +18,9 @@ swag:
 	@echo "Generating API documentation..."
 	swag init -g cmd/main.go -o docs
 
+test:
+	@echo "Running tests..."
+	go test ./...
 # Show help message
 help:
 	@echo "Makefile for Go project"
