@@ -8,6 +8,12 @@ type Repo struct {
 	cache *redis.Client
 }
 
+type Repository interface {
+	StoreShortURL(shortURL, longURL string) error
+	GetLongURL(shortURL string) (string, error)
+	GetShortURL(longURL string) string
+}
+
 func NewRepo(cache *redis.Client) *Repo {
 	return &Repo{cache: cache}
 }
