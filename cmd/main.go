@@ -8,6 +8,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/danniels/shortening-url/docs"
 	"github.com/danniels/shortening-url/internal/config"
 	"github.com/danniels/shortening-url/internal/handler"
 	"github.com/danniels/shortening-url/internal/logger"
@@ -25,7 +26,30 @@ func init() {
 	prometheus.MustRegister(middleware.HttpRequestDuration)
 }
 
+//	@title			Swagger Example API
+//	@version		1.0
+//	@description	This is a sample server celler server.
+//	@termsOfService	http://swagger.io/terms/
+
+//	@contact.name	API Support
+//	@contact.url	http://www.swagger.io/support
+//	@contact.email	support@swagger.io
+
+//	@license.name	Apache 2.0
+//	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
+
+//	@host		localhost:3000
+//	@BasePath	/
+
+//	@securityDefinitions.basic	BasicAuth
+
+// @externalDocs.description	OpenAPI
+// @externalDocs.url			https://swagger.io/resources/open-api/
 func main() {
+	docs.SwaggerInfo.Title = "Swagger Example API"
+	docs.SwaggerInfo.Version = "1.0"
+	docs.SwaggerInfo.Schemes = []string{"http", "https"}
+
 	logger.NewLogger()
 	defer logger.Logger.Sync()
 
