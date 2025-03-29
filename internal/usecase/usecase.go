@@ -6,7 +6,7 @@ import (
 )
 
 type usecase struct {
-	repo *repository.Repo
+	repo repository.Repository
 }
 
 type Usecase interface {
@@ -14,6 +14,6 @@ type Usecase interface {
 	GetOriginalURL(shortedUrl string) (string, error)
 }
 
-func NewUsecase(repo *repository.Repo) *usecase {
+func NewUsecase(repo repository.Repository) *usecase {
 	return &usecase{repo: repo}
 }
