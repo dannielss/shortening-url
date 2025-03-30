@@ -3,9 +3,9 @@ package handler
 import "github.com/danniels/shortening-url/internal/usecase"
 
 type Handler struct {
-	uc usecase.Usecase
+	uc usecase.IUsecase
 }
 
-func NewHandler(uc usecase.Usecase) *Handler {
+func NewHandler(uc usecase.IUsecase) *Handler {
 	return &Handler{uc: uc}
 }

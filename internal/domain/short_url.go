@@ -6,5 +6,5 @@ type UrlMapping struct {
 }
 
 type ShortUrlRequest struct {
-	URL string `json:"url" validate:"required"`
+	URL string `json:"url" validate:"required" binding:"required"`
 }

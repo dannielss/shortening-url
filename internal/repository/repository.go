@@ -8,7 +8,7 @@ type Repo struct {
 	cache *redis.Client
 }
 
-type Repository interface {
+type IRepository interface {
 	StoreShortURL(shortURL, longURL string) error
 	GetLongURL(shortURL string) (string, error)
 	GetShortURL(longURL string) string

@@ -5,15 +5,15 @@ import (
 	"github.com/danniels/shortening-url/internal/repository"
 )
 
-type usecase struct {
-	repo repository.Repository
+type Usecase struct {
+	repo repository.IRepository
 }
 
-type Usecase interface {
+type IUsecase interface {
 	ShortenURL(url string) (*domain.UrlMapping, error)
 	GetOriginalURL(shortedUrl string) (string, error)
 }
 
-func NewUsecase(repo repository.Repository) *usecase {
-	return &usecase{repo: repo}
+func NewUsecase(repo repository.IRepository) *Usecase {
+	return &Usecase{repo: repo}
 }
