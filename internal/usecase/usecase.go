@@ -10,7 +10,7 @@ type usecase struct {
 }
 
 type Usecase interface {
-	ShortURL(url string) (*domain.UrlMapping, error)
+	ShortenURL(url string) (*domain.UrlMapping, error)
 	GetOriginalURL(shortedUrl string) (string, error)
 }
 

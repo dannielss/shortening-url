@@ -8,7 +8,7 @@ import (
 	"github.com/danniels/shortening-url/internal/domain"
 )
 
-func (uc *usecase) ShortURL(url string) (*domain.UrlMapping, error) {
+func (uc *usecase) ShortenURL(url string) (*domain.UrlMapping, error) {
 	hash := sha256.Sum256([]byte(url))
 
 	encoded := base64.URLEncoding.EncodeToString(hash[:])

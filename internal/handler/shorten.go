@@ -24,7 +24,7 @@ func (h *Handler) ShortUrl(ctx *gin.Context) {
 		return
 	}
 
-	shortenedURL, err := h.uc.ShortURL(request.URL)
+	shortenedURL, err := h.uc.ShortenURL(request.URL)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Could not shorten URL"})
 		return

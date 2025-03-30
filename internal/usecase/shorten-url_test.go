@@ -18,7 +18,7 @@ func TestShortURL(t *testing.T) {
 	mockRepo.On("GetLongURL", shortURL).Return("", nil)
 	mockRepo.On("StoreShortURL", shortURL, originalURL).Return(nil)
 
-	result, err := uc.ShortURL(originalURL)
+	result, err := uc.ShortenURL(originalURL)
 
 	assert.NoError(t, err)
 	assert.Equal(t, originalURL, result.LongURL)
@@ -36,7 +36,7 @@ func TestShortURLInRedis(t *testing.T) {
 
 	mockRepo.On("GetLongURL", shortURL).Return("https://example.com", nil)
 
-	result, err := uc.ShortURL(originalURL)
+	result, err := uc.ShortenURL(originalURL)
 
 	assert.NoError(t, err)
 	assert.Equal(t, originalURL, result.LongURL)
@@ -55,7 +55,7 @@ func TestShortURLError(t *testing.T) {
 	mockRepo.On("GetLongURL", shortURL).Return("", nil)
 	mockRepo.On("StoreShortURL", shortURL, originalURL).Return(errors.New("error"))
 
-	_, err := uc.ShortURL(originalURL)
+	_, err := uc.ShortenURL(originalURL)
 
 	assert.Error(t, err)
 }
