@@ -21,10 +21,13 @@
 `Gp;amg version: 1.24.1`
 
 ```bash
-1. Install all dependencies
+1. Copy .env and add redis address
+$ cp .env.example .env
+
+2. Install all dependencies
 $ go mod tidy
 
-2. Start application
+3. Start application
 $ make dev
 
 3. Check all commands
@@ -42,4 +45,21 @@ $ make help
 
 ## :memo: Usage
 
+- Shorten a URL:
+  - Send a POST request to `/shorten` with a JSON payload containing the url to be shorted.
+  - Example using `curl`:
+  ```
+    curl -X POST http://localhost:3000/shorten \
+    -H "Content-Type: applicaiton/json" \
+    -d '{"url": "https://example.com"}'
+  ```
 
+- Access the shortened URL
+  - Navigate to `http://localhost:3000/{shorted_url}` in your browser or via HTTP request.
+
+- Metrics
+  - Access Grafana dashboards at `http://localhost:3001`
+  - Access Prometheus metrics at `http://localhost:3000/metrics`
+
+- Docs
+  - Access Swagger documentation at `http://localhost:3000/swagger/index.html`
