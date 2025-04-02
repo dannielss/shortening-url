@@ -27,7 +27,9 @@
 $ cp .env.example .env
 
 2. Install all dependencies
-$ go get . (or go mod tidy)
+$ go get .
+or
+$ go mod tidy
 
 3. Start application
 $ make dev
