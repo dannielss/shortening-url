@@ -18,9 +18,9 @@
 
 ## :wrench: Configuration
 
-`Gp;amg version: 1.24.1`
+`Golang version: 1.24.1`
 
-```bash
+```
 1. Copy .env and add redis address
 $ cp .env.example .env
 
@@ -45,10 +45,12 @@ $ make help
 
 ## :memo: Usage
 
-- Shorten a URL:
+- Shorten a URL
   - Send a POST request to `/shorten` with a JSON payload containing the url to be shorted.
   - Example using `curl`:
-  ```
+
+
+  ```bash
     curl -X POST http://localhost:3000/shorten \
     -H "Content-Type: applicaiton/json" \
     -d '{"url": "https://example.com"}'
