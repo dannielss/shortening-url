@@ -12,9 +12,11 @@
 
 ## :gift: Features
 
-- Upload multiple files
-- Search for keyword/highlight text
-- Dark theme
+- Shorten long URLs
+- Redirect users from short URLs to the original links
+- Observability with Prometheus and Grafana
+- Cache with redis
+- Swagger docs
 
 ## :wrench: Configuration
 
