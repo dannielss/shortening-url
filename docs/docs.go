@@ -134,7 +134,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "Swagger Example API",
-	Description:      "This is a sample server celler server.",
+	Description:      "URL Shortener api",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",
